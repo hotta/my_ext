@@ -26,6 +26,7 @@
 #include "php_ini.h"
 #include "ext/standard/info.h"
 #include "php_my_ext.h"
+#include "my_lib.h"
 
 /* If you declare any globals in php_my_ext.h uncomment this:
 ZEND_DECLARE_MODULE_GLOBALS(my_ext)
@@ -147,6 +148,7 @@ PHP_MINFO_FUNCTION(my_ext)
  */
 const zend_function_entry my_ext_functions[] = {
 	PHP_FE(confirm_my_ext_compiled,	NULL)		/* For testing, remove later. */
+	PHP_FE(my_echo_int,	            NULL)
 	PHP_FE_END	/* Must be the last line in my_ext_functions[] */
 };
 /* }}} */

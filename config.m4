@@ -55,14 +55,14 @@ if test "$PHP_MY_EXT" != "no"; then
 
   # --with-my_ext -> check for lib and symbol presence
   LIBNAME=my_lib
-  LIBSYMBOL=my_logger
+  LIBSYMBOL=my_echo_int
 
   PHP_CHECK_LIBRARY($LIBNAME,$LIBSYMBOL,
   [
     PHP_ADD_LIBRARY_WITH_PATH($LIBNAME, $MY_EXT_DIR/$PHP_LIBDIR, MY_EXT_SHARED_LIBADD)
     AC_DEFINE(HAVE_MY_EXTLIB,1,[ ])
   ],[
-    AC_MSG_ERROR([wrong my_ext lib version or lib not found])
+    AC_MSG_ERROR([libmy_lib.so が見つからないか、バージョンが誤っています])
   ],[
     -L$MY_EXT_DIR/$PHP_LIBDIR -lm
   ])
