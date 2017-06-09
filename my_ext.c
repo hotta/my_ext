@@ -78,6 +78,15 @@ PHP_FUNCTION(confirm_my_ext_compiled)
 */
 PHP_FUNCTION(my_echo_int)
 {
+  zend_long arg;
+
+  if (ZEND_NUM_ARGS() < 1 || 1 < ZEND_NUM_ARGS()) {
+    WRONG_PARAM_COUNT;
+  }
+  if (zend_parse_parameters(ZEND_NUM_ARGS(), "l", &arg) == FAILURE) {
+    return;
+  }
+  my_echo_int(arg);
 }
 /* }}} */
 
