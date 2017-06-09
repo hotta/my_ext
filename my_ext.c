@@ -73,6 +73,13 @@ PHP_FUNCTION(confirm_my_ext_compiled)
    follow this convention for the convenience of others editing your code.
 */
 
+/* {{{ proto void my_echo_int(int arg)
+   コンソールに関数名と引数を表示します。
+*/
+PHP_FUNCTION(my_echo_int)
+{
+}
+/* }}} */
 
 /* {{{ php_my_ext_init_globals
  */
