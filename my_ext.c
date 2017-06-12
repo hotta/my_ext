@@ -90,6 +90,23 @@ PHP_FUNCTION(my_echo_int)
 }
 /* }}} */
 
+/* {{{ proto int my_add_return_int( int a, int b )
+   a と b の和を返します。
+*/
+PHP_FUNCTION(my_add_return_int)
+{
+  zend_long a, b;
+
+  if (ZEND_NUM_ARGS() < 2 || 2 < ZEND_NUM_ARGS()) {
+    WRONG_PARAM_COUNT;
+  }
+  if (zend_parse_parameters(ZEND_NUM_ARGS(), "ll", &a, &b) == FAILURE) {
+    return;
+  }
+  RETURN_LONG(my_add_return_int(a, b));
+}
+/* }}} */
+
 /* {{{ php_my_ext_init_globals
  */
 /* Uncomment this function if you have INI entries
@@ -165,6 +182,7 @@ PHP_MINFO_FUNCTION(my_ext)
 const zend_function_entry my_ext_functions[] = {
 	PHP_FE(confirm_my_ext_compiled,	NULL)		/* For testing, remove later. */
 	PHP_FE(my_echo_int,	            NULL)
+	PHP_FE(my_add_return_int,       NULL)
 	PHP_FE_END	/* Must be the last line in my_ext_functions[] */
 };
 /* }}} */
